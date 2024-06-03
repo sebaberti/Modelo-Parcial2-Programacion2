@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 #include <iostream>
 #include <cstring> // para poder utilizar strcpy
 #include <cstdlib>
@@ -292,7 +292,7 @@ Compra com;
             obj.mostrarArchivo();
             break;
             case 3:
-           objCom.listarCompras();
+            objCom.listarCompras();
             break;
             case 4:
             objPro.listarProveedores();
@@ -300,7 +300,7 @@ Compra com;
             case 5:
             com.Cargar();
             objCom.grabarRegistro(com);
-                break;
+            break;
             case 6:
             puntoC();
             break;
@@ -339,14 +339,7 @@ Menu();
 
     return 0;
 }
-=======
-#include <iostream>
-#include <cstring>
-#include <cstdlib>
 
-using namespace std;
-
-#include "parcial2.h"
 
 class Punto1 {
 private:
@@ -659,4 +652,4 @@ int main()
 
 	return 0;
 }
->>>>>>> f25e92feab7d554a7cfbb6f0eb6d7aad761304ab
+
