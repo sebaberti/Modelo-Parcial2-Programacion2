@@ -142,27 +142,40 @@ void puntoB(){
 Material objMat;
 ArchivoMateriales objArMat("materiales.dat");
 
+Compra objCom;
+ArchivoCompras objArCom("compras.dat");
 
 
-int tam = objArMat.contarRegistros();
+
+int tam1 = objArMat.contarRegistros();
+int tam2 = objArCom.contarRegistros();
+
 int vec[6] ={};
 
 
-for(int i= 0 ; i< tam ; i++){
+for(int i= 0 ; i< tam1 ; i++){
     objMat = objArMat.leerRegistro(i);
-    vec[objMat.getTipo()-1]++;
+
+   for(int j=0;j<tam2;j++){
+    objCom =objArCom.leerRegistro(j);
+
+    if(objCom.getCodigoMaterial() == objMat.getCodigoMaterial()){
+        vec[objMat.getTipo()-1]+=objCom.getCantidad();
+    }
+   }
+
 }
 
  int tipoMenosMateriales ;
  int menorCantidad = 0;
- bool primero = false;
+ bool bandera = true;
 
     for (int i = 1; i < 6; i++) {
-        if(!primero){
+        if((bandera == true)&&(vec[i]>0)){
             menorCantidad = vec[i];
             tipoMenosMateriales =i;
-            primero =true;
-        }else if(vec[i]< menorCantidad){
+            bandera = false;
+        }else if(vec[i]< menorCantidad && vec[i]>0){
             menorCantidad = vec[i];
             tipoMenosMateriales = i;
 
@@ -172,6 +185,7 @@ for(int i= 0 ; i< tam ; i++){
 
 
 cout << "El material menor es el numero " << tipoMenosMateriales + 1<< endl;
+cout << "con la cantidad: " << menorCantidad << " de matteriales " <<endl;
 
 
 }
