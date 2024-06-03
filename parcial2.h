@@ -67,9 +67,11 @@ public:
 
 
     //SOBRECARGA PUNTO D
-    bool operator == (float sup) const {
-    return superficie == sup;
+    bool operator == (float sup)  {
+    if(superficie == sup) return true;
+     return false;
     }
+
 
     const char* getCodigoObra(){return codigoObra;}
     const char* getDireccion(){return direccion;}
